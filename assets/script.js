@@ -1,53 +1,4 @@
-//console.log($('.ball').html());
-
-var motionPath = function () {
-    /*DEMO*/
-    var path = anime.path('.motion-path path');
-
-    // var easings = [-2700, -2300, -1900, -1500, -1100, -700, -300, 100, 500];
-    let easings = [];
-    let easingsCount = 15;
-    let easingsDelay = 400;
-    let easingsStart = -3000;
-    let easingTemplate = '<div class="motion_item"><div class="item water_el"></div></div>';
-
-    let arrowTemplate = '<div class="motion_item"><div class="arrow arrow-blue"></div></div>'
-
-    for (i = 0; i < easingsCount; i++) {
-        if (i == 0) {
-            easings.push(easingsStart)
-        } else {
-            easings.push(easings[i - 1] + easingsDelay);
-        }
-        if (i % 3) {
-            jQuery('.motion-path').append(easingTemplate);
-        } else {
-            jQuery('.motion-path').append(arrowTemplate)
-        }
-    }
-    console.log(easings);
-
-    anime({
-        targets: '.motion-path .motion_item',
-        translateX: path('x'),
-        translateY: path('y'),
-        rotate: path('angle'),
-        easing: 'linear',
-        delay: function (el, i) {
-            return easings[i];
-        },
-        endDelay: function (el, i) {
-            return easings[i] - 5800;
-        },
-        duration: 3000,
-        loop: true
-    });
-    /*DEMO*/
-}
-//motionPath();
-
-let tracks = [
-    {
+let tracks = [{
         name: '.trackSorting',
         attr: {
             pathChild: 'path',
@@ -238,18 +189,19 @@ let tracks = [
     },
 ]
 
-function startTracks(elements){
+function startTracks(elements) {
     elements.map((el) => {
         trackConstructor(el);
     })
 }
-function trackConstructor(el){
+
+function trackConstructor(el) {
     let itemBox = el.name + ' .items .itemsContainer';
     let path = anime.path(el.name + ' ' + el.attr.pathChild);
     let items = [];
 
     let itemTemplate = '<div class="motion_item ' + el.attr.itemName + '"><div class="' + el.attr.itemType + ' item"></div></div>';
-    let arrowTemplate = '<div class="motion_item "><div class="arrowItem arrow-' + el.attr.arrowColor + ' '+el.attr.arrowName+'"></div></div>';
+    let arrowTemplate = '<div class="motion_item "><div class="arrowItem arrow-' + el.attr.arrowColor + ' ' + el.attr.arrowName + '"></div></div>';
 
     for (i = 0; i < el.opt.itemsCount; i++) {
         if (i == 0) {
@@ -268,7 +220,7 @@ function trackConstructor(el){
         targets: itemBox + ' .motion_item',
         translateX: path('x'),
         translateY: path('y'),
-        rotate: function (elem, i) {
+        rotate: function(elem, i) {
             let opt = {};
             if (i % el.attr.arrowEveryOf) {
                 opt = el.attr.rotate ? path('angle') : 0;
@@ -278,10 +230,10 @@ function trackConstructor(el){
             return opt;
         },
         easing: 'linear',
-        delay: function (elem, i) {
+        delay: function(elem, i) {
             return items[i];
         },
-        endDelay: function (elem, i) {
+        endDelay: function(elem, i) {
             return items[i] - el.opt.backDelay;
         },
         duration: el.opt.duration,
@@ -290,59 +242,63 @@ function trackConstructor(el){
     });
     console.log(el.name + ' constructed!');
 }
+
 startTracks(tracks);
-let sortTrackAnimate = function () {
-    let name = 'trackSorting';
-    let itemBox = '.' + name + ' .items';
-    let item = 'item';
-    let type = 'sort';
-    let arrowColor = 'blue';
-    let arrow = 'arrow';
-    let path = anime.path('.' + name + ' path');
-    let duration = 3000;
-    let backDelay = 5000;
-    let loop = true;
 
-    let items = [];
-    let itemsCount = 10;
-    let itemsDelay = 500;
-    let itemsStart = -2000;
-    let itemTemplate = '<div class="motion_item ' + item + '"><div class="' + type + ' item"></div></div>';
 
-    let arrowTemplate = '<div class="motion_item ' + arrow + '"><div class="arrow arrow-' + arrowColor + '"></div></div>';
+// Прошлый пример анимации, на основе которого сделан констурктор из массива объектов
+// let sortTrackAnimate = function () {
+//     let name = 'trackSorting';
+//     let itemBox = '.' + name + ' .items';
+//     let item = 'item';
+//     let type = 'sort';
+//     let arrowColor = 'blue';
+//     let arrow = 'arrow';
+//     let path = anime.path('.' + name + ' path');
+//     let duration = 3000;
+//     let backDelay = 5000;
+//     let loop = true;
 
-    for (i = 0; i < itemsCount; i++) {
-        if (i == 0) {
-            items.push(itemsStart)
-        } else {
-            items.push(items[i - 1] + itemsDelay);
-        }
-        if (i % 3) {
-            jQuery(itemBox).append(itemTemplate);
-        } else {
-            jQuery(itemBox).append(arrowTemplate)
-        }
-    }
+//     let items = [];
+//     let itemsCount = 10;
+//     let itemsDelay = 500;
+//     let itemsStart = -2000;
+//     let itemTemplate = '<div class="motion_item ' + item + '"><div class="' + type + ' item"></div></div>';
 
-    console.log(items);
-    console.log(path);
-    console.log(itemBox + ' .' + item);
+//     let arrowTemplate = '<div class="motion_item ' + arrow + '"><div class="arrow arrow-' + arrowColor + '"></div></div>';
 
-    anime({
-        targets: itemBox + ' .motion_item',
-        translateX: path('x'),
-        translateY: path('y'),
-        rotate: path('angle'),
-        easing: 'linear',
-        delay: function (el, i) {
-            return items[i];
-        },
-        endDelay: function (el, i) {
-            return items[i] - backDelay;
-        },
-        duration: duration,
-        loop: loop
-    });
+//     for (i = 0; i < itemsCount; i++) {
+//         if (i == 0) {
+//             items.push(itemsStart)
+//         } else {
+//             items.push(items[i - 1] + itemsDelay);
+//         }
+//         if (i % 3) {
+//             jQuery(itemBox).append(itemTemplate);
+//         } else {
+//             jQuery(itemBox).append(arrowTemplate)
+//         }
+//     }
 
-}
+//     console.log(items);
+//     console.log(path);
+//     console.log(itemBox + ' .' + item);
+
+//     anime({
+//         targets: itemBox + ' .motion_item',
+//         translateX: path('x'),
+//         translateY: path('y'),
+//         rotate: path('angle'),
+//         easing: 'linear',
+//         delay: function (el, i) {
+//             return items[i];
+//         },
+//         endDelay: function (el, i) {
+//             return items[i] - backDelay;
+//         },
+//         duration: duration,
+//         loop: loop
+//     });
+
+// }
 // sortTrackAnimate();
