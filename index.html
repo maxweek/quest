@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="assets/fonts/opensans.css" />
+    <link type="text/css" rel="stylesheet" href="assets/style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <section class="container">
+        <div class="backLayer">
+            <div class="backLayerInner">
+                <div class="layerText">Генерация электроэнергии<br>из отходов</div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="cards">
+                <div class="card typeBiggerQuad borderGray bigger" style="left: 55px; top: 73px;">
+                    <img src="assets/images/ico_eco.png" />
+                    <div class="title">Сортировка мусора</div>
+                </div>
+                <div class="card typeQuad borderGreen" style="left: 276px; top: 78px;">
+                    <div class="pos posRight dark">Отходы</div>
+                    <img src="assets/images/ico_grabber.png" />
+                    <div class="title">Приёмный бункер</div>
+                </div>
+                <div class="card typeRect borderGreen" style="left: 438px; top: 285px;">
+                    <div class="pos posTopRight middle">Газ</div>
+                    <div class="pos posRight middle">Шлак</div>
+                    <div class="pos posBotRight lighter">Пар</div>
+                    <img src="assets/images/ico_fire.png" />
+                    <div class="title">Установка для сжигания</div>
+                </div>
+                <div class="card typeQuad borderGreen" style="left: 285px; top: 484px;">
+                    <div class="pos posTop light">Конденсат</div>
+                    <img src="assets/images/ico_condenser.png" />
+                    <div class="title">Конденсатор</div>
+                </div>
+                <div class="card typeQuad borderGreen" style="left: 610px; top: 484px;">
+                    <img src="assets/images/ico_generator.png" />
+                    <div class="title">Турбо генератор</div>
+                </div>
+                <div class="card typeQuad bgFilters" style="left: 611px; top: 69px;">
+                    <div class="additional">
+                        <div class="additionalText">Чистый воздух</div>
+                        <div class="additionalImages">
+                            <img src="assets/images/ico_air.png" />
+                            <img src="assets/images/ico_air.png" />
+                            <img src="assets/images/ico_air.png" />
+                        </div>
+                    </div>
+                    <img src="assets/images/ico_filters.png" />
+                    <div class="title">Фильтры</div>
+                </div>
+
+                <div class="card typeLarge borderLightGray typeRect" style="left: 831px; top: 47px;">
+                    <img src="assets/images/ico_bricks.png" />
+                    <div class="title">Летучая зола 3%</div>
+                    <div class="info">Зола<br>нейтрализуется путем цементирования</div>
+                </div>
+                <div class="card typeLarge borderLightGray typeRect" style="left: 831px; top: 251px;">
+                    <img src="assets/images/ico_slag_big.png" />
+                    <div class="title">Шлак</div>
+                    <div class="subtitle">10% от объема отходов</div>
+                    <div class="info">
+                        Из шлака отбираются полезные фракции: черные и цветные металлы. Остальное направляется<br> на дорожное строительство
+                    </div>
+                </div>
+                <div class="card typeLarge borderYellow typeRect hasSparks" style="left: 831px; top: 454px;">
+                    <img src="assets/images/ico_tower.png" />
+                    <div class="title">Электроэнергия</div>
+                    <div class="sparks">
+                        <img src="assets/images/ico_energy.png" />
+                        <img src="assets/images/ico_energy.png" />
+                        <img src="assets/images/ico_energy.png" />
+                        <img src="assets/images/ico_energy.png" />
+                    </div>
+                    <div class="info">
+                        Электроэнергия поставляется в сеть<br> для нужд потребителей
+                    </div>
+                </div>
+            </div>
+            <div class="tracks">
+                <div class="track trackSorting">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m0,17l218,0" />
+                    </svg>
+                    <div class="trackImitateContainer">
+                        <div class="trackImitate_1"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackTrash">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m0,17l125,0 Q 142,15 142,35l0,185" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                        <div class="trackImitate_2"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackCondense">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1"
+                            d="m16,187l0,-72 Q 16,98 35,98l98,0 Q 149,98 149,81l0,-80" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                        <div class="trackImitate_2"></div>
+                        <div class="trackImitate_3"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackTurbo">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m326,17l-326,0" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackFire">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1"
+                            d="m18,0l0,106 Q 18,122 36,122 l 103,0 Q 155,122 155,139l0,80" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                        <div class="trackImitate_2"></div>
+                        <div class="trackImitate_3"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackGas">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m17,240l0,-206 Q 17,17 34,17 l138,0" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                        <div class="trackImitate_2"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackFilter">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m0,10l250,0" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackSlag">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m0,10l400,0" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+                <div class="track trackEnergy">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="black" stroke-width="1" d="m0,25l254,0" />
+                    </svg>
+                    <div class='trackImitateContainer'>
+                        <div class="trackImitate_1"></div>
+                    </div>
+                    <div class="items">
+                        <div class="itemsContainer"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="infos">
+                <div class="info_1">Мусоровозы привозят отсортированные отходы, не подлежащие вторичной переработке, в приемный бункер</div>
+                <div class="info_2">Отходы грейферным краном загружаются в установки для сжигания</div>
+                <div class="info_3">Дымовые газы проходят 3-ступенчатую очистку</div>
+                <div class="info_4">Возврат конденсата в пароводяной цикл</div>
+                <div class="info_5">Тепло используется для получения пара</div>
+                <div class="info_6">Тепловая энергия пара преобразуется в электрическую</div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/anime.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
